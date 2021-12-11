@@ -28,3 +28,7 @@ $("#root").on("keyup", "input", function () {
     $(this).val($(this).val().slice(0, -1));
   }
 });
+
+$("#root").on("blur", "input", function () {
+  $("#bottom").append(`<p>${$(this).val()}</p>`);
+});
