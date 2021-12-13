@@ -2,7 +2,9 @@ let count = 0;
 $("#addButton").click(function () {
   if (count < 2) {
     count++;
-    $("#root").append(`<button id="btn${count}">otroboton</button>`);
+    $(".rowbuttons").append(
+      `<div class="col-4"><button id="btn${count}" class="btn btn-primary form-control px-5 mx-3">Button ${count}</button></div>`
+    );
   }
 });
 
@@ -15,7 +17,21 @@ $("#root").on("dblclick", "#btn1", function () {
 });
 //tercero
 $("#root").on("click", "#btn2", function () {
-  $("#root").append(`<input class="input" placeholder="Type here!!"/>`);
+  html = `
+   <div class="col-sm-3 mt-2">
+  <div class="card" style="width: 18rem;">
+  <div class="card-header">
+    Card
+  </div>
+  <div class="card-body">
+  <ul class="Write only numbers">
+    <input class="form-control" placeholder="Type here!!"/>
+
+  </div>
+  </div>
+  </div
+  `;
+  $(".rowinput").append(html);
 });
 $("#root").on("keyup", "input", function () {
   console.log($(this).val());
@@ -31,4 +47,5 @@ $("#root").on("keyup", "input", function () {
 
 $("#root").on("blur", "input", function () {
   $("#bottom").append(`<p>${$(this).val()}</p>`);
+  $("input").val("");
 });
